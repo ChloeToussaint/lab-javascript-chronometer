@@ -9,7 +9,7 @@ class Chronometer {
     const intervalId = setInterval(() => {
       this.currentTime++;
       if (callback) callback();
-    }, 1000);
+    }, 10);
     this.intervalId = intervalId;
   }
 

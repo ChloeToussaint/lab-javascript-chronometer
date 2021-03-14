@@ -14,18 +14,27 @@ let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
 function printTime() {
-  printMinutes();
-  printSeconds();
+  const str = chronometer.splitClick ();
+  const minSec = str.split(":");
+  printMinutes(minSec [0]);
+  printSeconds(minSec [1]);
 }
 
-function printMinutes() {
+// "01:23".split(":") => ["01", "23"]
+// "01".split("") => ["0", "1"]
+
+function printMinutes(str) {
   // maj de minDec et minUni a l'aide de la chaine retournee par chronometer.splitClick() "08:57"
-  minUni.innerHTML = chronometer.getMinutes();
+  const min = str.split ("");
+  minUni.innerHTML = min [1];
+  minDec.innerHTML = min [0];
 }
 
-function printSeconds() {
+function printSeconds(str) {
   // maj de secDec et secUni a l'aide de la chaine retournee par chronometer.splitClick() "08:57"
-  secUni.innerHTML = chronometer.getSeconds();
+  const sec = str.split ("");
+  secUni.innerHTML = sec [1];
+  secDec.innerHTML = sec [0];
 }
 
 // ==> BONUS
